@@ -1,4 +1,5 @@
 "use client";
+import ConversationBox from "@/components/ConversationBox";
 import JobTitleInput from "@/components/JobTitleInput";
 import UserInputBox from "@/components/UserInputBox";
 import { useState } from "react";
@@ -15,6 +16,7 @@ export default function HomePage() {
     <main className="flex flex-col gap-2 items-center justify-center min-h-screen">
       <h1 className="text-4xl font-bold">Ai Mock Interviwer</h1>
       <JobTitleInput jobTitle={jobTitle} setJobTitle={setJobTitle} />
+      <ConversationBox conversation={conversation} />
       <UserInputBox userInput={userInput} setUserInput={setUserInput} />
     </main>
   );
