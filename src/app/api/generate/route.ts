@@ -13,21 +13,19 @@ export async function POST(req: NextRequest) {
   try {
     const { prompt } = await req.json(); // Parse JSON body
 
-    console.log(prompt);
     if (!prompt) {
       return NextResponse.json(
         { error: "Prompt is required" },
         { status: 400 }
       );
     }
-    // Initialize the model
+  
     const model = await genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    // Generate content
+
     const result = await model.generateContent(prompt);
     console.log(result);
 
-    // Send response back to client
     return NextResponse.json(
       { reply: result.response.text() }, 
       { status: 200 }
