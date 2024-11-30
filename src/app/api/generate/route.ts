@@ -19,15 +19,13 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-  
+
     const model = await genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-
     const result = await model.generateContent(prompt);
-    console.log(result);
 
     return NextResponse.json(
-      { reply: result.response.text() }, 
+      { reply: result.response.text() },
       { status: 200 }
     );
   } catch (error: any) {
