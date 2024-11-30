@@ -18,7 +18,7 @@ export default function JobTitleInput({
         onChange={(e) => setJobTitle(e.target.value)}
         id="job-title"
         name="job-title"
-        className="border-blue-500 border-solid border-2 p-1"
+        className="border-[#0f9ed5] border-solid border-2 p-1"
       />
     </div>
   );
