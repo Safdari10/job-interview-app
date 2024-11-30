@@ -14,7 +14,7 @@ export default function HomePage() {
   console.log(userInput);
   return (
     <main className="flex flex-col gap-2 items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold">Ai Mock Interviwer</h1>
+      <h1 className="text-4xl font-bold">Ai Mock Interviewer</h1>
       <JobTitleInput jobTitle={jobTitle} setJobTitle={setJobTitle} />
       <ConversationBox conversation={conversation} />
       <UserInputBox userInput={userInput} setUserInput={setUserInput} />
