@@ -13,12 +13,12 @@ interface Conversation {
 export default function HomePage() {
   const [jobTitle, setJobTitle] = useState("");
   const [conversation, setConversation] = useState<Conversation[]>([
-    { sender: "Interviewer", text: "Tell me about yourself." },
+    { sender: "Interviewer", text: "Thank you for coming, Introduce yourself." },
   ]);
   const [userInput, setUserInput] = useState("");
 
   const handleUserInput = async () => {
-    const response = await getAIResponse(jobTitle, userInput);
+    const response = await getAIResponse(jobTitle, conversation);
     setConversation((prev) => [
       ...prev,
       { sender: "Me", text: userInput },
@@ -32,7 +32,11 @@ export default function HomePage() {
       <h1 className="text-4xl font-bold">Ai Mock Interviewer</h1>
       <JobTitleInput jobTitle={jobTitle} setJobTitle={setJobTitle} />
       <ConversationBox conversation={conversation} />
-      <UserInputBox userInput={userInput} setUserInput={setUserInput} onSubmit={handleUserInput} />
+      <UserInputBox
+        userInput={userInput}
+        setUserInput={setUserInput}
+        onSubmit={handleUserInput}
+      />
     </main>
   );
 }

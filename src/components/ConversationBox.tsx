@@ -10,7 +10,7 @@ interface ConversationProps {
 export default function ConversationBox({ conversation }: ConversationProps) {
   // console.log(conversation);
   return (
-    <div className="border-[2px] border-solid border-black h-[600px] w-[600px]">
+    <div className="border-[2px] border-solid border-black h-[600px] w-[800px] overflow-hidden">
       {conversation.map((convo, index) => (
         <div
           key={index}
