@@ -26,7 +26,7 @@ export default function UserInputBox({
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mt-4">
       {!showInput && (
         <button
           onClick={handleStart}
@@ -40,12 +40,12 @@ export default function UserInputBox({
           <input
             type="text"
             value={userInput}
-            className="border-[#0f9ed5] border-solid border-2 p-1 mr-2"
+            className="border-[#0f9ed5] border-solid border-2 rounded-md w-[500px]  h-10 p-1 mr-2"
             onChange={(e) => setUserInput(e.target.value)}
           />
           <button
             onClick={handleSubmit}
-            className="bg-[#0f9ed5] border-solid border-2 text-white py-1 px-3">
+            className="bg-[#0f9ed5] border-solid border-2 rounded-md w-32 h-10 text-white py-1 px-3">
             Submit
           </button>
         </div>

@@ -30,7 +30,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col gap-2 items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold">Ai Mock Interviewer</h1>
+      <h1 className="text-4xl text-[#0f9ed5] font-medium mb-5">AI MOCK INTERVIEWER</h1>
       <JobTitleInput jobTitle={jobTitle} setJobTitle={setJobTitle} />
       <ConversationBox conversation={conversation} />
       <UserInputBox
