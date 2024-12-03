@@ -1,11 +1,10 @@
 "use client";
-import React, { useState } from "react";
+
+import { useState } from "react";
 
 interface UserInputBoxProps {
   userInput: string;
-
   setUserInput: React.Dispatch<React.SetStateAction<string>>;
-
   onSubmit: () => Promise<void>;
 }
 
@@ -30,22 +29,22 @@ export default function UserInputBox({
       {!showInput && (
         <button
           onClick={handleStart}
-          className="bg-[#0f9ed5] text-white py-2 px-4 rounded">
+          className="bg-[#0f9ed5] text-white py-2 px-4 rounded-md hover:bg-[#0d8ec0] focus:outline-none focus:ring-2 focus:ring-[#0f9ed5] transition duration-300">
           Let's Get Started
         </button>
       )}
 
       {showInput && (
-        <div className="mt-4">
+        <div className="mt-4 flex items-center">
           <input
             type="text"
             value={userInput}
-            className="border-[#0f9ed5] border-solid border-2 rounded-md w-[500px]  h-10 p-1 mr-2"
+            className="border-[#0f9ed5] border-solid border-2 rounded-md w-[500px] h-10 p-2 mr-2 focus:outline-none focus:ring-2 focus:ring-[#0f9ed5] transition duration-300"
             onChange={(e) => setUserInput(e.target.value)}
           />
           <button
             onClick={handleSubmit}
-            className="bg-[#0f9ed5] border-solid border-2 rounded-md w-32 h-10 text-white py-1 px-3">
+            className="bg-[#0f9ed5] text-white py-2 px-4 rounded-md hover:bg-[#0d8ec0] focus:outline-none focus:ring-2 focus:ring-[#0f9ed5] transition duration-300">
             Submit
           </button>
         </div>
