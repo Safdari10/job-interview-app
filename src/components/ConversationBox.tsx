@@ -13,12 +13,11 @@ export default function ConversationBox({ conversation }: ConversationProps) {
       {conversation.map((convo, index) => (
         <div
           key={index}
-          className={`flex gap-2 p-3 text-lg mb-3 rounded-lg shadow ${
+          className={`flex gap-2 p-3 text-lg mb-3 w-[850px] rounded-lg shadow ${
             convo.sender === "Interviewer"
-              ? "text-left text-[#0f9ed5] bg-gray-100"
-              : "text-right bg-blue-50"
-          }`}
-        >
+              ? " text-[#0f9ed5] bg-gray-100"
+              : " bg-blue-50"
+          }`}>
           <p className="font-semibold">{convo.sender}:</p>
           <p>{convo.text}</p>
         </div>
