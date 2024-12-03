@@ -17,8 +17,8 @@ export default function UserInputBox({
   const [showInput, setShowInput] = useState(false);
 
   const handleStart = () => {
-    setShowInput(true); // Show the input and submit button
-    onSubmit(); // Call the onSubmit function
+    setShowInput(true);
+    onSubmit();
   };
 
   const handleSubmit = () => {
@@ -30,8 +30,7 @@ export default function UserInputBox({
       {!showInput && (
         <button
           onClick={handleStart}
-          className="bg-[#0f9ed5] text-white py-2 px-4 rounded"
-        >
+          className="bg-[#0f9ed5] text-white py-2 px-4 rounded">
           Let's Get Started
         </button>
       )}
@@ -46,8 +45,7 @@ export default function UserInputBox({
           />
           <button
             onClick={handleSubmit}
-            className="bg-[#0f9ed5] border-solid border-2 text-white py-1 px-3"
-          >
+            className="bg-[#0f9ed5] border-solid border-2 text-white py-1 px-3">
             Submit
           </button>
         </div>

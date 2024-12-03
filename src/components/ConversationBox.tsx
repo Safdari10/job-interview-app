@@ -8,7 +8,6 @@ interface ConversationProps {
 }
 
 export default function ConversationBox({ conversation }: ConversationProps) {
-  // console.log(conversation);
   return (
     <div className="border-[2px] border-solid border-black h-[600px] w-[800px] overflow-hidden">
       {conversation.map((convo, index) => (
@@ -18,8 +17,7 @@ export default function ConversationBox({ conversation }: ConversationProps) {
             convo.sender === "Interviewer"
               ? "text-left text-[#0f9ed5]"
               : "text-right"
-          }
-        >
+          }>
           <div className="flex gap-1 p-2 text-lg">
             <p>{convo.sender}:</p>
             <p>{convo.text}</p>

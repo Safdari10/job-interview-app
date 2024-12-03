@@ -11,7 +11,8 @@ const genAI = new GoogleGenerativeAI(apiKey);
 
 export async function POST(req: NextRequest) {
   try {
-    const { prompt } = await req.json(); // Parse JSON body
+    // Get the prompt from the request body by parsing the JSON
+    const { prompt } = await req.json(); 
 
     if (!prompt) {
       return NextResponse.json(
