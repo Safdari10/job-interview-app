@@ -12,21 +12,22 @@ interface Conversation {
 
 export default function HomePage() {
   const [jobTitle, setJobTitle] = useState("");
-  const [conversation, setConversation] = useState<Conversation[]>([
-    { sender: "Interviewer", text: "Thank you for coming, Introduce yourself." },
-  ]);
+  const [conversation, setConversation] = useState<Conversation[]>([]);
   const [userInput, setUserInput] = useState("");
 
   const handleUserInput = async () => {
-    const response = await getAIResponse(jobTitle, conversation);
+    const userMessage: Conversation = { sender: "Me", text: userInput };
+    const response = await getAIResponse(jobTitle, [
+      ...conversation,
+      userMessage,
+    ]);
     setConversation((prev) => [
       ...prev,
-      { sender: "Me", text: userInput },
+      userMessage,
       { sender: "Interviewer", text: response },
     ]);
   };
-  // console.log(jobTitle);
-  // console.log(userInput);
+
   return (
     <main className="flex flex-col gap-2 items-center justify-center min-h-screen">
       <h1 className="text-4xl font-bold">Ai Mock Interviewer</h1>
