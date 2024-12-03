@@ -9,19 +9,18 @@ interface ConversationProps {
 
 export default function ConversationBox({ conversation }: ConversationProps) {
   return (
-    <div className="border-[2px] border-solid border-black h-[600px] w-[800px] rounded-lg overflow-hidden overflow-y-scroll bg-white shadow-md shadow-gray-400  ">
+    <div className="border-2 border-solid border-gray-300 h-[600px] w-[900px] rounded-lg overflow-hidden hover:overflow-y-scroll bg-white shadow-md shadow-gray-400 p-4 custom-scrollbar">
       {conversation.map((convo, index) => (
         <div
           key={index}
-          className={
+          className={`flex gap-2 p-3 text-lg mb-3 rounded-lg shadow ${
             convo.sender === "Interviewer"
-              ? "text-left text-[#0f9ed5]"
-              : "text-right"
-          }>
-          <div className="flex gap-1 p-2 text-lg">
-            <p>{convo.sender}:</p>
-            <p>{convo.text}</p>
-          </div>
+              ? "text-left text-[#0f9ed5] bg-gray-100"
+              : "text-right bg-blue-50"
+          }`}
+        >
+          <p className="font-semibold">{convo.sender}:</p>
+          <p>{convo.text}</p>
         </div>
       ))}
     </div>
