@@ -1,7 +1,12 @@
 import axios from "axios";
 
+interface UserName {
+  name: string;
+  setName: (name: string) => void;
+}
+
 interface Conversation {
-  sender: "Interviewer" | "Me";
+  sender: "Interviewer" | UserName;
   text: string;
 }
 
