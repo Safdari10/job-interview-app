@@ -19,11 +19,11 @@ export default function UserInputBox({
 
   const handleStart = async () => {
     setShowInput(true);
-   await onStart();
+    await onStart();
   };
 
-  const handleSubmit =async () => {
-   await  onSubmit();
+  const handleSubmit = async () => {
+    await onSubmit();
   };
 
   return (
@@ -31,7 +31,8 @@ export default function UserInputBox({
       {!showInput && (
         <button
           onClick={handleStart}
-          className="bg-[#0f9ed5] text-white py-2 px-4 rounded-md hover:bg-[#0d8ec0] focus:outline-none focus:ring-2 focus:ring-[#0f9ed5] transition duration-300">
+          className="bg-[#0f9ed5] text-white py-2 px-4 rounded-md hover:bg-[#0d8ec0] focus:outline-none focus:ring-2 focus:ring-[#0f9ed5] transition duration-300"
+        >
           Let's Get Started
         </button>
       )}
@@ -46,7 +47,8 @@ export default function UserInputBox({
           />
           <button
             onClick={handleSubmit}
-            className="bg-[#0f9ed5] text-white py-2 px-4 rounded-md hover:bg-[#0d8ec0] focus:outline-none focus:ring-2 focus:ring-[#0f9ed5] transition duration-300">
+            className="bg-[#0f9ed5] text-white py-2 px-4 rounded-md hover:bg-[#0d8ec0] focus:outline-none focus:ring-2 focus:ring-[#0f9ed5] transition duration-300"
+          >
             Submit
           </button>
         </div>

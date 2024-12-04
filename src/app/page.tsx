@@ -5,8 +5,13 @@ import JobTitleInput from "@/components/JobTitleInput";
 import UserInputBox from "@/components/UserInputBox";
 import { useState } from "react";
 
+interface UserName {
+  name: string;
+  setName: (name: string) => void;
+}
+
 interface Conversation {
-  sender: "Interviewer" | "Me";
+  sender: "Interviewer" | UserName;
   text: string;
 }
 
@@ -15,7 +20,7 @@ export default function HomePage() {
   const [conversation, setConversation] = useState<Conversation[]>([]);
   const [userInput, setUserInput] = useState("");
   const [started, setStarted] = useState(false);
-
+  const [name, setName] = useState("");
 
   const startInterview = async () => {
     if (!started) {
@@ -28,27 +33,39 @@ export default function HomePage() {
   const handleInterview = async () => {
     if (userInput.trim() === "") return;
 
-    const userMessage: Conversation = { sender: "Me", text: userInput };
+    const userMessage: Conversation = {
+      sender: { name, setName },
+      text: userInput,
+    };
     const response = await getAIResponse(jobTitle, [
       ...conversation,
       userMessage,
     ]);
     setUserInput("");
     setTimeout(() => {
-         setConversation((prev) => [
-      ...prev,
-      userMessage,
-      { sender: "Interviewer", text: response },
-    ]);
+      setConversation((prev) => [
+        ...prev,
+        userMessage,
+        { sender: "Interviewer", text: response },
+      ]);
     }, 500);
- 
-    
   };
 
   return (
     <main className="flex flex-col gap-2 items-center justify-center min-h-screen">
-      <h1 className="text-4xl text-[#0f9ed5] font-medium mb-5">AI MOCK INTERVIEWER</h1>
-      <JobTitleInput jobTitle={jobTitle} setJobTitle={setJobTitle} />
+      <h1 className="text-4xl text-[#0f9ed5] font-medium mb-5">
+        AI MOCK INTERVIEWER
+      </h1>
+      <p className="text-md font-semibold mb-4">
+        To Get Started Please Enter Your Name and the Role You're Applying for
+        Below and Click the "Lets Get Started Button" to Begin.
+      </p>
+      <JobTitleInput
+        jobTitle={jobTitle}
+        setJobTitle={setJobTitle}
+        name={name}
+        setName={setName}
+      />
       <ConversationBox conversation={conversation} />
       <UserInputBox
         userInput={userInput}

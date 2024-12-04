@@ -17,16 +17,13 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #d2d2d4;
   border-radius: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #0f9ed5;
 }
-
-
-
 
 @tailwind components;
 @tailwind utilities;
