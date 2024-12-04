@@ -16,7 +16,6 @@ export default function HomePage() {
   const [userInput, setUserInput] = useState("");
   const [started, setStarted] = useState(false);
 
-
   const startInterview = async () => {
     if (!started) {
       const response = await getAIResponse(jobTitle, []);
@@ -35,19 +34,23 @@ export default function HomePage() {
     ]);
     setUserInput("");
     setTimeout(() => {
-         setConversation((prev) => [
-      ...prev,
-      userMessage,
-      { sender: "Interviewer", text: response },
-    ]);
+      setConversation((prev) => [
+        ...prev,
+        userMessage,
+        { sender: "Interviewer", text: response },
+      ]);
     }, 500);
- 
-    
   };
 
   return (
     <main className="flex flex-col gap-2 items-center justify-center min-h-screen">
-      <h1 className="text-4xl text-[#0f9ed5] font-medium mb-5">AI MOCK INTERVIEWER</h1>
+      <h1 className="text-4xl text-[#0f9ed5] font-medium mb-5">
+        AI MOCK INTERVIEWER
+      </h1>
+      <p className="text-md font-semibold mb-4">
+        To Get Started Please Enter Your Name and the Role You're Applying for
+        Below and Click the "Lets Get Started Button" to Begin.
+      </p>
       <JobTitleInput jobTitle={jobTitle} setJobTitle={setJobTitle} />
       <ConversationBox conversation={conversation} />
       <UserInputBox
