@@ -1,11 +1,15 @@
 interface JobTitleInputProps {
   jobTitle: string;
   setJobTitle: (jobTitle: string) => void;
+  name: string;
+  setName: (name: string) => void;
 }
 
 export default function JobTitleInput({
   jobTitle,
   setJobTitle,
+  name,
+  setName,
 }: JobTitleInputProps) {
   return (
     <div className="mb-4 flex gap-8">
@@ -15,6 +19,8 @@ export default function JobTitleInput({
         </label>
         <input
           type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           id="name"
           name="name"
           className="text-lg font-medium border-[#0f9ed5] border-solid border-2 p-2 w-80 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0f9ed5] focus:border-transparent transition duration-300"
