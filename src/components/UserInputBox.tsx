@@ -6,22 +6,24 @@ interface UserInputBoxProps {
   userInput: string;
   setUserInput: React.Dispatch<React.SetStateAction<string>>;
   onSubmit: () => Promise<void>;
+  onStart: () => Promise<void>;
 }
 
 export default function UserInputBox({
   userInput,
   setUserInput,
   onSubmit,
+  onStart,
 }: UserInputBoxProps) {
   const [showInput, setShowInput] = useState(false);
 
-  const handleStart = () => {
+  const handleStart = async () => {
     setShowInput(true);
-    onSubmit();
+   await onStart();
   };
 
-  const handleSubmit = () => {
-    onSubmit();
+  const handleSubmit =async () => {
+   await  onSubmit();
   };
 
   return (

@@ -14,18 +14,35 @@ export default function HomePage() {
   const [jobTitle, setJobTitle] = useState("");
   const [conversation, setConversation] = useState<Conversation[]>([]);
   const [userInput, setUserInput] = useState("");
+  const [started, setStarted] = useState(false);
 
-  const handleUserInput = async () => {
+
+  const startInterview = async () => {
+    if (!started) {
+      const response = await getAIResponse(jobTitle, []);
+      setConversation([{ sender: "Interviewer", text: response }]);
+      setStarted(true);
+    }
+  };
+
+  const handleInterview = async () => {
+    if (userInput.trim() === "") return;
+
     const userMessage: Conversation = { sender: "Me", text: userInput };
     const response = await getAIResponse(jobTitle, [
       ...conversation,
       userMessage,
     ]);
-    setConversation((prev) => [
+    setUserInput("");
+    setTimeout(() => {
+         setConversation((prev) => [
       ...prev,
       userMessage,
       { sender: "Interviewer", text: response },
     ]);
+    }, 500);
+ 
+    
   };
 
   return (
@@ -36,7 +53,8 @@ export default function HomePage() {
       <UserInputBox
         userInput={userInput}
         setUserInput={setUserInput}
-        onSubmit={handleUserInput}
+        onSubmit={handleInterview}
+        onStart={startInterview}
       />
     </main>
   );
