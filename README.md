@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# AI Mock Interviewer
 
-First, run the development server:
+An AI-powered application that simulates professional job interviews. The app conducts interviews step-by-step, asking tailored questions based on user responses, and provides structured feedback at the end of the interview.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Features
+
+- Start a mock interview for any job title.
+- Realistic interview simulation where the AI asks questions dynamically based on user responses.
+- Structured feedback at the end of the interview, including strengths, areas for improvement, and overall impression.
+- Fully responsive and user-friendly interface.
+
+---
+
+## Tech Stack
+
+- **Framework**: Next.js with TypeScript
+- **Styling**: Tailwind CSS
+- **Backend**: Next.js API Routes
+- **AI**: Google Gemini API (via `@google/generative-ai` package)
+- **State Management**: React Hooks
+- **Package Manager**: pnpm
+
+---
+
+## Installation
+
+### Prerequisites
+
+- Node.js (v16 or later)
+- pnpm (preferred package manager)
+- A Google Gemini API key
+
+### Steps
+
+1. **Create the Project**  
+   This project was bootstrapped using the following command:  
+   ```bash
+   pnpm create-next-app@latest
+   ```
+   - Chose `TypeScript` for the project setup.
+
+2. **Clone the Repository**  
+   ```bash
+   git clone <repository-url>
+   cd ai-mock-interviewer
+   ```
+
+3. **Install Dependencies**  
+   Use `pnpm` to install project dependencies:  
+   ```bash
+   pnpm install
+   ```
+
+4. **Environment Variables**  
+   Create a `.env.local` file in the root directory and add your Gemini API key:  
+   ```env
+   GEMINI_API_KEY=your_google_gemini_api_key
+   ```
+
+5. **Run the Development Server**  
+   ```bash
+   pnpm dev
+   ```
+
+6. **Build for Production**  
+   To build and start the app in production mode:  
+   ```bash
+   pnpm build
+   pnpm start
+   ```
+
+7. **Linting**  
+   Run the linter to check for code quality:  
+   ```bash
+   pnpm lint
+   ```
+
+---
+
+## Folder Structure
+
+```plaintext
+├── /app
+│   ├── /api
+│   │   └── generate.ts
+│   ├── /components
+│   │   ├── ConversationBox.tsx
+│   │   ├── JobTitleInput.tsx
+│   │   └── UserInputBox.tsx
+│   └── page.tsx
+├── /public
+├── /styles
+├── /utils
+│   └── client.ts
+├── .env.local
+├── README.md
+├── next.config.js
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License. Feel free to use and modify it as per your requirements.
