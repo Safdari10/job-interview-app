@@ -22,11 +22,13 @@ export const getAIResponse = async (
   // Check if the limit of questions is reached
   if (questionCount >= 7) {
     const feedbackPrompt = `
-      The interview has concluded with six questions. Now, provide **structured feedback** on the applicant's performance:
-      ***Important:*** Give each feedback point in a separate line.
-      - **Strengths:** Highlight areas where the applicant excelled.
-      - **Areas for Improvement:** Offer clear, actionable suggestions to enhance their responses.
-      - **Overall Impression:** Summarize the applicant's performance concisely.
+      The interview has concluded. Now, provide structured feedback on the applicant's performance:
+      Please include a thank you message before providing the feedback and make sure the feedback is short and concise. 
+      Feedback to be displayed using bullet points and on seperate lines. Do not include "*" in your feedback. 
+      Provide feedback on the following areas: 
+      - Strengths: Highlight areas where the applicant excelled.
+      - Areas for Improvement: Offer clear, actionable suggestions to enhance their responses.
+      - Overall Impression: Summarize the applicant's performance concisely.
 
       Below is the interview progress for your reference:
       ${conversation
@@ -74,5 +76,3 @@ export const getAIResponse = async (
     return "Error during AI generation.";
   }
 };
-
-
